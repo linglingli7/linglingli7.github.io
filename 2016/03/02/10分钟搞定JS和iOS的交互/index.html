@@ -5,16 +5,28 @@
   
   <title>10分钟搞定JS和iOS的交互 | 一一</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一直被模仿，从未被超越">
+  <meta name="description" content="JS和iOS交互，是每个应用都少不了的需求，尤其是在页面变动比较大的情况，页面经常更新，JS和iOS交互用起来就很幸福了。
+进入正题
+一、贴上h5的代码
+                        
+            var share = JSON.stringify({&amp;quot;title&amp;quot;: &amp;quot;Migi000&amp;quot;,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="10分钟搞定JS和iOS的交互">
 <meta property="og:url" content="http://yoursite.com/2016/03/02/10分钟搞定JS和iOS的交互/index.html">
 <meta property="og:site_name" content="一一">
-<meta property="og:description" content="一直被模仿，从未被超越">
-<meta property="og:updated_time" content="2016-05-25T10:02:18.000Z">
+<meta property="og:description" content="JS和iOS交互，是每个应用都少不了的需求，尤其是在页面变动比较大的情况，页面经常更新，JS和iOS交互用起来就很幸福了。
+进入正题
+一、贴上h5的代码
+                        
+            var share = JSON.stringify({&amp;quot;title&amp;quot;: &amp;quot;Migi000&amp;quot;,">
+<meta property="og:updated_time" content="2016-05-25T10:04:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="10分钟搞定JS和iOS的交互">
-<meta name="twitter:description" content="一直被模仿，从未被超越">
+<meta name="twitter:description" content="JS和iOS交互，是每个应用都少不了的需求，尤其是在页面变动比较大的情况，页面经常更新，JS和iOS交互用起来就很幸福了。
+进入正题
+一、贴上h5的代码
+                        
+            var share = JSON.stringify({&amp;quot;title&amp;quot;: &amp;quot;Migi000&amp;quot;,">
   
     <link rel="alternative" href="/atom.xml" title="一一" type="application/atom+xml">
   
@@ -281,7 +293,71 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <p>JS和iOS交互，是每个应用都少不了的需求，尤其是在页面变动比较大的情况，页面经常更新，JS和iOS交互用起来就很幸福了。</p>
+<p>进入正题</p>
+<p>一、贴上h5的代码</p>
+<p><html><br>    <head><br>        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"><br>            <script type="text/javascript"></p>
+<pre><code>            var share = JSON.stringify({&quot;title&quot;: &quot;Migi000&quot;,
+                                       &quot;desc&quot;: &quot;简书&quot;,
+                                       &quot;shareUrl&quot;: &quot;http://www.jianshu.com/p/f896d73c670a&quot;
+                                       });
+
+        //IOS
+        function startFunction(share){
+            window.android.startFunction(share)//android
+        }
+
+            &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;br/&gt;
+    &lt;h1&gt;Objective-C和JavaScript交互的那些事&lt;/h1&gt; &lt;br/&gt;
+    &lt;input  type=&quot;button&quot; value=&quot;Share&quot; onClick=&quot;startFunction(share)&quot; &gt;点击调用原生代码并传递参数&lt;/a&gt;
+
+        &lt;/body&gt;&lt;/html&gt;
+</code></pre><p>注释：这里的方法要写在head里面，PS:在测试这段代码之前，本身方法是写在body中，但是Android不能实现，后来放在head中就可以实现，这个没有太多了解是什么原因，有大神可以指教</p>
+<p>二、快速接入 - block解决<br>.m文件如下</p>
+<p>////  ViewController.m//  jsTest////  Created by fangpinhui on 16/5/18.//  Copyright © 2016年 Lumic. All rights reserved.//</p>
+<p>#import “ViewController.h”#import <JavaScriptCore/JavaScriptCore.h></p>
+<p>@interface ViewController ()<UIWebViewDelegate>@property (nonatomic)UIWebView <em>webView;<br>@property (nonatomic)JSContext </em>jsContext;<br>@property (nonnull,strong) UIButton *btn;<br>@end</p>
+<p>@implementation ViewController</p>
+<ul>
+<li><p>(void)viewDidLoad {<br>  [super viewDidLoad];</p>
+<p>  self.webView = [[UIWebView alloc]initWithFrame:self.view.bounds];<br>  self.webView.delegate = self;<br>  [self.view addSubview:_webView];<br>  NSString *str = [[NSBundle mainBundle] pathForResource:@”migi” ofType:@”html”];<br>  [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:@”f”]]];<br>//    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@”<a href="http://192.168.1.59:8020/Online-Booking/index.html">http://192.168.1.59:8020/Online-Booking/index.html</a>“]]];</p>
+<p>  //  在上面添加一个按钮，实现oc端控制h5实现弹alert方法框<br>  self.btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 400, 100, 40)];<br>  self.btn.backgroundColor = [UIColor redColor];<br>  [self.btn addTarget:self action:@selector(showAlert) forControlEvents:UIControlEventTouchUpInside];<br>  [self.view addSubview:self.btn];</p>
+</li>
+</ul>
+<p>}</p>
+<ul>
+<li><p>(void)showAlert<br>{<br>  //要将script的alert()方法转化为string类型<br>  NSString *alertJs=@”alert(‘Hello Word’)”;<br>  [_jsContext evaluateScript:alertJs];<br>}</p>
+</li>
+<li><p>(void)webViewDidFinishLoad:(UIWebView *)webView{<br>  _jsContext = [webView valueForKeyPath:@”documentView.webView.mainFrame.javaScriptContext”];<br>  _jsContext[@”startFunction”] =^(id obj){<br>////这里通过block回调从而获得h5传来的json数据</p>
+<pre><code>/*block中捕获JSContexts
+我们知道block会默认强引用它所捕获的对象，如下代码所示，如果block中直接使用context也会造成循环引用，这使用我们最好采用[JSContext currentContext]来获取当前的JSContext:
+ */
+[JSContext currentContext];
+NSData *data = [(NSString *)obj dataUsingEncoding:NSUTF8StringEncoding ];
+NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+NSLog(@&quot; data   %@   ======  ShareUrl %@&quot;,obj,dict[@&quot;shareUrl&quot;]);
+</code></pre><p>  };<br>  //<br>  _jsContext.exceptionHandler = ^(JSContext <em>context, JSValue </em>exceptionValue) {</p>
+<pre><code>context.exception = exceptionValue;
+//比如把js中的方法名改掉，OC找不到相应方法，这里就会打印异常信息
+NSLog(@&quot;异常信息：%@&quot;, exceptionValue);
+</code></pre><p>  };</p>
+</li>
+</ul>
+<p>}</p>
+<ul>
+<li>(void)didReceiveMemoryWarning {<br>  [super didReceiveMemoryWarning];<br>  // Dispose of any resources that can be recreated.<br>}</li>
+</ul>
+<p>@end<br>注释：<br>1.#import <JavaScriptCore/JavaScriptCore.h> 导入放在.h文件中<br>2.因为这里h5需要调用我们的Native定义的startFunction 方法，以及需要的回调的数据格式，所以这里需要和h5沟通一下</p>
+<p>这就是简单的js和oc之间的交互，可以使用在平台的应用中，下面是遇到的问题汇总，如有遇到问题，积极分享咯！</p>
+<p>问题汇总：<br>问题1.<br>在执行回调时，iOS可以实现回调方法，而Android无法实现，双发都检查了代码，没有问题，检查h5代码时，发现方法写在body中，Android无法实现回调</p>
+<p>解决办法：<br>h5的方法写在head中，实现了，好吧，大神指导好吗？</p>
+<p>问题2：<br>在进行js和iOS的交互时，我写了个代码，demo中我把#import <JavaScriptCore/JavaScriptCore.h><br>库的引入放在了.m文件中，block回调时拿到了数据，但是当在公司项目中实现时，怎么都不执行回调方法，很是诡异，怎么都无法实现，</p>
+<p>解决办法：<br>把库的导入#import <JavaScriptCore/JavaScriptCore.h> 放在.h文件中就执行了。满面懵逼！，求指教</p>
+<p>来自：<a href="http://www.jianshu.com/p/0819c84f9ef1">http://www.jianshu.com/p/0819c84f9ef1</a></p>
+</script></head></html></p>
       
     </div>
     
@@ -292,7 +368,7 @@
         <p><span>本文标题:</span><a href="/2016/03/02/10分钟搞定JS和iOS的交互/">10分钟搞定JS和iOS的交互</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 John Doe 的个人博客">John Doe</a></p>
         <p><span>发布时间:</span>2016年03月02日 - 18时01分</p>
-        <p><span>最后更新:</span>2016年05月25日 - 18时02分</p>
+        <p><span>最后更新:</span>2016年05月25日 - 18时04分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/02/10分钟搞定JS和iOS的交互/" title="10分钟搞定JS和iOS的交互">http://yoursite.com/2016/03/02/10分钟搞定JS和iOS的交互/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/03/02/10分钟搞定JS和iOS的交互/　　作者: John Doe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
