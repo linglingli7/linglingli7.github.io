@@ -3,21 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>关于切换文字颜色 | 一一</title>
+  <title>10分钟搞定JS和iOS的交互 | 一一</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本节小结知识点：storyboard文件的认识控制器IBActionIBOutlet关于IBAction、IBOutlet前缀IB的解释类扩展(Class Extension)项目的常见属性注意点常见错误
-1.storyboard文件的认识作用：描述软件界面程序启动的简单过程程序一启动，就会加载Main.storyboard文件会创建箭头所指的控制器，并且显示控制器所管理的软件界面配置程序一启动就">
+  <meta name="description" content="一直被模仿，从未被超越">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于切换文字颜色">
-<meta property="og:url" content="http://yoursite.com/2014/08/02/关于切换文字颜色/index.html">
+<meta property="og:title" content="10分钟搞定JS和iOS的交互">
+<meta property="og:url" content="http://yoursite.com/2016/03/02/10分钟搞定JS和iOS的交互/index.html">
 <meta property="og:site_name" content="一一">
-<meta property="og:description" content="本节小结知识点：storyboard文件的认识控制器IBActionIBOutlet关于IBAction、IBOutlet前缀IB的解释类扩展(Class Extension)项目的常见属性注意点常见错误
-1.storyboard文件的认识作用：描述软件界面程序启动的简单过程程序一启动，就会加载Main.storyboard文件会创建箭头所指的控制器，并且显示控制器所管理的软件界面配置程序一启动就">
-<meta property="og:updated_time" content="2016-05-25T09:42:30.000Z">
+<meta property="og:description" content="一直被模仿，从未被超越">
+<meta property="og:updated_time" content="2016-05-25T10:02:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于切换文字颜色">
-<meta name="twitter:description" content="本节小结知识点：storyboard文件的认识控制器IBActionIBOutlet关于IBAction、IBOutlet前缀IB的解释类扩展(Class Extension)项目的常见属性注意点常见错误
-1.storyboard文件的认识作用：描述软件界面程序启动的简单过程程序一启动，就会加载Main.storyboard文件会创建箭头所指的控制器，并且显示控制器所管理的软件界面配置程序一启动就">
+<meta name="twitter:title" content="10分钟搞定JS和iOS的交互">
+<meta name="twitter:description" content="一直被模仿，从未被超越">
   
     <link rel="alternative" href="/atom.xml" title="一一" type="application/atom+xml">
   
@@ -250,11 +247,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-关于切换文字颜色" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-10分钟搞定JS和iOS的交互" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2014/08/02/关于切换文字颜色/" class="article-date">
-      <time datetime="2014-08-02T09:40:07.000Z" itemprop="datePublished">2014-08-02</time>
+      <a href="/2016/03/02/10分钟搞定JS和iOS的交互/" class="article-date">
+      <time datetime="2016-03-02T10:01:44.000Z" itemprop="datePublished">2016-03-02</time>
 </a>
     </div>
   
@@ -267,7 +264,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      关于切换文字颜色
+      10分钟搞定JS和iOS的交互
     </h1>
   
 
@@ -284,69 +281,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>本节小结知识点：<br>storyboard文件的认识<br>控制器<br>IBAction<br>IBOutlet<br>关于IBAction、IBOutlet前缀IB的解释<br>类扩展(Class Extension)<br>项目的常见属性<br>注意点<br>常见错误</p>
-<p>1.storyboard文件的认识<br>作用：描述软件界面<br>程序启动的简单过程<br>程序一启动，就会加载Main.storyboard文件<br>会创建箭头所指的控制器，并且显示控制器所管理的软件界面<br>配置程序一启动就会加载的storyboard文件</p>
-<ol>
-<li><p>控制器<br>概念：凡是继承自UIViewController的对象，都叫做控制器；<br>作用：专门用来管理软件界面，负责软件界面的创建和销毁，负责处理软件界面的各种交互事件；<br>注意：每一个控制器都会专门管理一个软件界面；</p>
-</li>
-<li><p>IBAction<br>只能修饰方法的返回值类型<br>被IBAction修饰的方法</p>
-</li>
-</ol>
-<p>能拖线到storyboard中<br>返回值类型实际是void<br>使用格式</p>
-<ul>
-<li>(IBAction)buttonClick{<br>//方法语句；<br>}</li>
-</ul>
-<ol>
-<li>IBOutlet<br>只能修饰属性<br>被IBOutlet修饰的属性</li>
-</ol>
-<p>能拖线到storyboard中<br>使用格式</p>
-<p>// 对象我们使用 strong 修饰，但UI 控件我们可以使用 weak 修饰<br>// 系统默认生成的UI控件的属性由 weak 修饰;<br>@property (nonatomic, weak) IBOutlet UILabel *label;</p>
-<ol>
-<li><p>关于IBAction、IBOutlet前缀IB的解释<br>全称：Interface Builder<br>以前的UI界面开发模式：Xcode3 + Interface Builder<br>从Xcode4开始，Interface Builder已经整合到Xcode中了</p>
-</li>
-<li><p>类扩展(Class Extension)<br>作用</p>
-</li>
-</ol>
-<p>能为某个类增加额外的属性、成员变量、方法声明<br>一般将类扩展写到.m文件中<br>一般将一些私有的属性写到类扩展中<br>使用格式</p>
-<p>@interface 类名()<br>/<em> 属性、成员变量、方法声明 </em>/<br>@end<br>与分类的区别</p>
-<p>分类的小括号必须有名字</p>
-<p>@interface 类名(分类名字)<br>/<em> 方法声明 </em>/<br>@end<br>@implementation 类名(分类名字) / 方法实现 / @end</p>
-<ul>
-<li>分类只能扩充方法</li>
-<li>如果在分类中声明了一个属性，分类只会生成这个属性的get\set方法声明</li>
-</ul>
-<ol>
-<li><p>项目的常见属性<br>Product Name<br>产品名称<br>项目名称<br>软件名称<br>Organization Name<br>公司名称<br>Organization Identifier<br>公司的唯一标识<br>一般用网站域名的反写形式<br>Bundle Identifier<br>软件的唯一标识<br>默认 == Organization Identifier + Product Name</p>
-</li>
-<li><p>注意点<br>每一个控制器都专门管理一个属于自己的界面<br>一个方法可以和多个UI按钮控件连线；<br>一个UI控件也可以同时和多个方法连线；<br>如果一个控件监听了多个方法，调用的顺序会是反够来，会先连线后调用，后连线先调用；<br>拷贝UI控件的时候，也会将该控件含有的所有方法、属性（包括连线）都一起拷贝；<br>控制器一定要与之类型匹配，才能用控制器中的控件与该类中的方法或者属性连线；<br>属性变量是指针，指向堆中的对象，存储在栈中；</p>
-</li>
-<li><p>常见错误<br>第1个错误</p>
-</li>
-</ol>
-<p>错误描述：<br>reason：-[<viewcontroller> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key label.<br>原因：IBOutlet属性代码被删掉了，但是属性连线还在<br>解决：将残留的连线删掉<br>第2个错误</viewcontroller></p>
-<p>错误描述：<br>reason：-[ViewController blueClick]: unrecognized selector sent to instance 0x7ff59d014320<br>原因：调用了一个不存在的方法<br>解决：认真检查方法名，使用正确并且存在的方法名<br>//<br>//  ViewController.m<br>//  day01<br>//<br>//  Created by 陈德豪 on 16/5/9.<br>//  Copyright © 2016年 陈德豪. All rights reserved.<br>//</p>
-<p>#import “ViewController.h”</p>
-<p>// 类扩展（Class Extension）<br>@interface ViewController ()</p>
-<p>@property (weak, nonatomic) IBOutlet UILabel <em>label;<br>//@property (nonatomic, weak) IBOutlet UILabel </em>label13;</p>
-<p>@end</p>
-<p>@implementation ViewController</p>
-<ul>
-<li><p>(void)viewDidLoad {<br>  [super viewDidLoad];<br>  // Do any additional setup after loading the view, typically from a nib.<br>}</p>
-</li>
-<li><p>(void)didReceiveMemoryWarning {<br>  [super didReceiveMemoryWarning];<br>  // Dispose of any resources that can be recreated.<br>}</p>
-</li>
-</ul>
-<h1 id="pragma-mark-–-红色点击"><a href="#pragma-mark-–-红色点击" class="headerlink" title="pragma mark – 红色点击"></a>pragma mark – 红色点击</h1><ul>
-<li>(IBAction)redclick{<br>  NSLog(@”%s”,<strong>func</strong>);<br>  self.label.text = @”我是红色文字&gt;&gt;&gt;&gt;&gt;”;<br>  self.label.textColor = [UIColor redColor];<br>  self.label.backgroundColor = [UIColor greenColor];<br>  self.label.font = [UIFont systemFontOfSize:15];<br>}</li>
-</ul>
-<h1 id="pragma-mark-–-绿色点击"><a href="#pragma-mark-–-绿色点击" class="headerlink" title="pragma mark – 绿色点击"></a>pragma mark – 绿色点击</h1><ul>
-<li>(IBAction)greenclick{<br>  NSLog(@”%s”,<strong>func</strong>);<br>  self.label.text = @”我是绿色文字&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;”;<br>  self.label.textColor = [UIColor greenColor];<br>  self.label.backgroundColor = [UIColor redColor];<br>  self.label.font = [UIFont systemFontOfSize:20];<br>}</li>
-</ul>
-<h1 id="pragma-mark-–-蓝色点击"><a href="#pragma-mark-–-蓝色点击" class="headerlink" title="pragma mark – 蓝色点击"></a>pragma mark – 蓝色点击</h1><ul>
-<li>(IBAction)blueclick{<br>  NSLog(@”%s”,<strong>func</strong>);<br>  self.label.text = @”我是蓝色文字&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;”;<br>  self.label.textColor = [UIColor blueColor];<br>  self.label.font = [UIFont systemFontOfSize:35];<br>  self.label.backgroundColor = [UIColor greenColor];<br>}</li>
-</ul>
-<p>@end</p>
-
+        
       
     </div>
     
@@ -354,13 +289,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2014/08/02/关于切换文字颜色/">关于切换文字颜色</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/02/10分钟搞定JS和iOS的交互/">10分钟搞定JS和iOS的交互</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 John Doe 的个人博客">John Doe</a></p>
-        <p><span>发布时间:</span>2014年08月02日 - 17时40分</p>
-        <p><span>最后更新:</span>2016年05月25日 - 17时42分</p>
+        <p><span>发布时间:</span>2016年03月02日 - 18时01分</p>
+        <p><span>最后更新:</span>2016年05月25日 - 18时02分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2014/08/02/关于切换文字颜色/" title="关于切换文字颜色">http://yoursite.com/2014/08/02/关于切换文字颜色/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2014/08/02/关于切换文字颜色/　　作者: John Doe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/02/10分钟搞定JS和iOS的交互/" title="10分钟搞定JS和iOS的交互">http://yoursite.com/2016/03/02/10分钟搞定JS和iOS的交互/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/03/02/10分钟搞定JS和iOS的交互/　　作者: John Doe" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -373,18 +308,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2015/05/01/new/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          new
-        
-      </div>
-    </a>
   
-  
-    <a href="/2014/05/25/你好，陌生人！/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">你好，陌生人！</div>
+    <a href="/2015/10/15/wed前端开发与iOS终端开发的异同/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">wed前端开发与iOS终端开发的异同</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -395,7 +321,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#pragma-mark-–-红色点击"><span class="toc-number">1.</span> <span class="toc-text">pragma mark – 红色点击</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pragma-mark-–-绿色点击"><span class="toc-number">2.</span> <span class="toc-text">pragma mark – 绿色点击</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pragma-mark-–-蓝色点击"><span class="toc-number">3.</span> <span class="toc-text">pragma mark – 蓝色点击</span></a></li></ol>
+    
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -443,7 +369,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2014/08/02/关于切换文字颜色/" data-title="关于切换文字颜色" data-url="http://yoursite.com/2014/08/02/关于切换文字颜色/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/02/10分钟搞定JS和iOS的交互/" data-title="10分钟搞定JS和iOS的交互" data-url="http://yoursite.com/2016/03/02/10分钟搞定JS和iOS的交互/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -466,13 +392,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2015/05/01/new/" title="上一篇: new">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2014/05/25/你好，陌生人！/" title="下一篇: 你好，陌生人！">
+            <a href="/2015/10/15/wed前端开发与iOS终端开发的异同/" title="下一篇: wed前端开发与iOS终端开发的异同">
                 <i class="fa fa-angle-right"></i>
             </a>
         
